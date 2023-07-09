@@ -4,7 +4,7 @@
   background-color: whitesmoke;
 
   top: var(--header-height);
-  z-index: 1000; /*todo able the zoom item to be front of the header!*/
+  z-index: var(--header-layout);
 }
 .profile-header{
   align-self: flex-start;

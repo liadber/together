@@ -1,10 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
 :root {
   /*Fixed Sizes*/
   --app-width: 975px;
   --header-height: 60px;
   --margin-width: 32px;
-  --profile-header-highet: 142px; /* todo it differnet., using the real hight,, more scable*/
+  --profile-header-highet: 142px; /* todo it different, using the real height, more scalable*/
 
   /*Distances*/
   --xs-px: 10px;
@@ -19,17 +18,21 @@
   --empty-color: #fafafa;
 
   /*Z-Index*/
-  --header-layout: 6000; /** todo design the layouts. **/
-
-
+  --base: 1000;
+  --above: var(--base) +1;
+  --below: var(--base) -1;
+  --header-layout: var(--base) + var(--above);
+  --zoom-layout: var(--header-layout) + var(--above);
 }
+
+/* You can add global styles to this file, and also import other style files */
 body {
   background-color: whitesmoke;
   font-family: Calibri;
   width: 100%;
 }
 
-.flx{
+.flx {
   display: flex;
 }
 
@@ -43,11 +46,11 @@ body {
   flex-direction: column;
 }
 
-.spc{
+.spc {
   justify-content: space-between;
 }
 
-button{
+button {
   background-color: whitesmoke;
   border: 1px solid var(--line-color);
   color: black;
@@ -55,7 +58,7 @@ button{
   border-radius: 5px;
 }
 
-.header{
+.header {
   position: fixed;
   left: 0;
   right: 0;

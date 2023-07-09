@@ -12,16 +12,17 @@
   justify-content: space-between;
 }
 
-.display-on-hover{
+.display-on-hover {
   display: none;
 }
 
-.grid-cell:hover .display-on-hover{
+.grid-cell:hover .display-on-hover {
   display: block;
+  z-index: var(--zoom-layout);
   transition: 4s;
 }
 
-.left-side-note{
+.left-side-note {
   background-color: #e9e9e9;
   flex-basis: 0;
   padding: 4px 45px 4px 4px;
@@ -29,7 +30,7 @@
   align-self: flex-start;
 }
 
-.topic{
+.topic {
   flex-basis: available;
   background-color: #e9e9e9;
   border-radius: 30px 30px 0px 0px;
