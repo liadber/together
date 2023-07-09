@@ -1,0 +1,16 @@
+<div class="flx profile-header-container header">
+  <div class="frow profile-header">
+    <div class="profile-picture"></div>
+    <div class="fcol spc">
+      <div class="profile-name">{{profileName}}</div>
+      <div class="profile-actions">
+        <ng-container *ngTemplateOutlet="profileActionsTemplate"></ng-container>
+      </div>
+      <div class="numbers-display frow">
+        <div *ngFor="let numberDisplay of numbersDisplayList">
+          <span>{{numberDisplay.number}}</span> {{numberDisplay.label}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

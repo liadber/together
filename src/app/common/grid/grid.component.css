@@ -1,0 +1,24 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: var(--xs-px);
+}
+
+.grid app-grid-cell {
+  cursor: pointer;
+}
+
+.grid app-grid-cell:hover {
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  transform: scale(1.2);
+  transition: transform .2s; /* Animation */
+}
+
+.grid app-grid-cell {
+  margin: 0 var(--xs-px) var(--xs-px);
+}
+
+.grid app-grid-cell:not(:last-child) {
+  margin-right: 0;
+}

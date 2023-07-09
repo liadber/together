@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  /*Fixed Sizes*/
+  --app-width: 975px;
+  --header-height: 60px;
+  --margin-width: 32px;
+  --profile-header-highet: 142px; /* todo it differnet., using the real hight,, more scable*/
+
+  /*Distances*/
+  --xs-px: 10px;
+  --s-px: 20px;
+  --m-px: 30px;
+  --l-px: 40px;
+  --xl-px: 100px;
+
+  /*Colors*/
+  --ice-line-color: #eee;
+  --line-color: rgba(var(--b6a, 219, 219, 219), 1);
+  --empty-color: #fafafa;
+
+  /*Z-Index*/
+  --header-layout: 6000; /** todo design the layouts. **/
+
+
+}
+body {
+  background-color: whitesmoke;
+  font-family: Calibri;
+  width: 100%;
+}
+
+.flx{
+  display: flex;
+}
+
+.frow {
+  display: flex;
+  flex-direction: row;
+}
+
+.fcol {
+  display: flex;
+  flex-direction: column;
+}
+
+.spc{
+  justify-content: space-between;
+}
+
+button{
+  background-color: whitesmoke;
+  border: 1px solid var(--line-color);
+  color: black;
+  padding: 7px 20px;
+  border-radius: 5px;
+}
+
+.header{
+  position: fixed;
+  left: 0;
+  right: 0;
+}

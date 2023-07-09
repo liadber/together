@@ -1,0 +1,45 @@
+
+.profile-header-container {
+  justify-content: center;
+  background-color: whitesmoke;
+
+  top: var(--header-height);
+  z-index: 1000; /*todo able the zoom item to be front of the header!*/
+}
+.profile-header{
+  align-self: flex-start;
+  border-bottom: 1px solid var(--line-color);
+
+  width: 100%;
+  padding: var(--s-px) 0px;
+
+  max-width: calc(var(--app-width) - 75px);
+  }
+
+.profile-picture {
+  background-color: var(--empty-color);
+  border: 1px solid var(--line-color);
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+  margin-right: var(--s-px);
+}
+
+.profile-name {
+  font-size: x-large;
+  letter-spacing: 1px;
+  font-weight: lighter;
+}
+
+.profile-actions ::ng-deep button {
+  margin-right: var(--xs-px);
+}
+
+.numbers-display div:not(:last-child) {
+  padding-right: var(--l-px);
+}
+
+.numbers-display span {
+  font-size: large;
+  font-weight: bold;
+}
