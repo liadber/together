@@ -1,0 +1,4 @@
+.app-profile-content{
+  position: absolute;
+  top: var(--profile-header-highet);
+}

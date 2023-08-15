@@ -9,14 +9,6 @@
   cursor: pointer;
 }
 
-.app-grid app-grid-cell:hover {
-  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-  transform: scale(1.2);
-  transition: transform .2s; /* Animation */
-  z-index: var(--zoom-layout);
-}
-
-
 .app-grid app-grid-cell:not(:last-child) {
   margin-right: 0;
 }

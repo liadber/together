@@ -4,7 +4,7 @@
   max-width: calc(var(--app-width) - 75px);
 
   position: absolute;
-  top: calc(var(--header-height) + var(--profile-header-highet));
+  top: var(--header-height);
   right: 0; /*todo change it. it makes center.*/
   left: 0;
 }
