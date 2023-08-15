@@ -8,6 +8,7 @@ import { GridComponent } from './common/grid/grid.component';
 import { GridCellComponent } from './common/grid/grid-cell/grid-cell.component';
 import { ProfileComponent } from './common/profile/profile.component';
 import { ProfileHeaderComponent } from './common/profile/profile-header/profile-header.component';
+import { ProjectComponent } from './common/project/project.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ProfileHeaderComponent } from './common/profile/profile-header/profile-
     GridCellComponent,
     ProfileComponent,
     ProfileHeaderComponent,
+    ProjectComponent,
   ],
   imports: [
     BrowserModule
