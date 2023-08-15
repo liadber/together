@@ -1,4 +1,4 @@
-.grid-cell {
+.app-grid-cell {
   border-radius: 4px;
   border: 1px solid var(--ice-line-color);
   background-color: var(--empty-color);
@@ -16,9 +16,8 @@
   display: none;
 }
 
-.grid-cell:hover .display-on-hover {
+.app-grid-cell:hover .display-on-hover {
   display: block;
-  z-index: var(--zoom-layout);
   transition: 4s;
 }
 

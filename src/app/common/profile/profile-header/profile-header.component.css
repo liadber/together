@@ -4,7 +4,7 @@
   background-color: whitesmoke;
 
   top: var(--header-height);
-  z-index: var(--header-layout);
+  z-index: var(--profile-header-layout);
 }
 .profile-header{
   align-self: flex-start;

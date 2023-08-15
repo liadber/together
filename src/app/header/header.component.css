@@ -1,11 +1,11 @@
 .toolbar-container {
+  z-index: var(--header-layout);
   justify-content: center;
   height: var(--header-height);
   background-color: white;
   color: black;
   border-bottom: 1px solid var(--line-color);
   top: 0;
-  z-index: var(--header-layout);
 }
 
 .toolbar {

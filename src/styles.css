@@ -18,11 +18,12 @@
   --empty-color: #fafafa;
 
   /*Z-Index*/
-  --base: 1000;
-  --above: var(--base) +1;
-  --below: var(--base) -1;
-  --header-layout: var(--base) + var(--above);
-  --zoom-layout: var(--header-layout) + var(--above);
+  --base: 1000; /*TODO WITH CONST!*/
+  --above: 1;
+  --below: -1;
+  --header-layout: calc(var(--base) + var(--above));
+  --profile-header-layout: calc(var(--header-layout) + var(--below));
+  --zoom-layout: 7000;
 }
 
 /* You can add global styles to this file, and also import other style files */
