@@ -12,7 +12,8 @@ export class ProfileHeaderComponent implements OnInit {
   @Input() numbersDisplayList: { label: string, number: number }[] = [
     {label: 'Projects', number: 67},
     {label: 'Believers', number: 90},
-    {label: 'Beliefs', number: 56}];
+    // {label: 'Beliefs', number: 56}
+  ];
 
   constructor() {
   }
