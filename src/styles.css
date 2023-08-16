@@ -47,6 +47,15 @@ body {
   flex-direction: column;
 }
 
+.fr-stretch{
+  justify-content: stretch;
+}
+
+.fc-stretch{
+  align-items: stretch;
+}
+
+
 .spc {
   justify-content: space-between;
 }
