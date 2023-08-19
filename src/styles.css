@@ -37,10 +37,11 @@ html, body {
   display: flex;
 }
 
-.strch {
+.w-strch {
   width: 100%;
-  height: 100%;
 }
+
+
 
 .flx {
   display: flex;
