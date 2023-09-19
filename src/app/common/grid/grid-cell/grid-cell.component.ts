@@ -8,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class GridCellComponent implements OnInit {
 
   @Input()
-  sideNote: string;
+  daysLeftNote: string;
 
   constructor() { }
 

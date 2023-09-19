@@ -1,7 +1,6 @@
 .app-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   padding: var(--xs-px);
 }
 
@@ -9,6 +8,6 @@
   cursor: pointer;
 }
 
-.app-grid app-grid-cell:not(:last-child) {
+.app-grid > app-grid-cell:not(:last-child) {
   margin-right: 0;
 }

@@ -1,45 +1,49 @@
 
-.profile-header-container {
+.ph-container {
   justify-content: center;
   background-color: whitesmoke;
-
-  top: var(--header-height);
-  z-index: var(--profile-header-layout);
 }
-.profile-header{
+
+.ph-profile-header {
   align-self: flex-start;
   border-bottom: 1px solid var(--line-color);
-
   width: 100%;
+  background-color: whitesmoke;
   padding: var(--s-px) 0px;
+}
 
-  max-width: calc(var(--app-width) - 75px);
-  }
-
-.profile-picture {
+.ph-profile-picture {
   background-color: var(--empty-color);
   border: 1px solid var(--line-color);
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
   border-radius: 10px;
   margin-right: var(--s-px);
 }
 
-.profile-name {
-  font-size: x-large;
+.ph-lines > :not(:last-child) {
+  margin-bottom: var(--xs-px);
+}
+
+.ph-profile-name {
+  font-size: large;
   letter-spacing: 1px;
   font-weight: lighter;
 }
 
-.profile-actions ::ng-deep button {
+.ph-profile-actions ::ng-deep button {
   margin-right: var(--xs-px);
 }
 
-.numbers-display div:not(:last-child) {
-  padding-right: var(--l-px);
+.ph-numbers-display > div:not(:last-child) {
+  padding-right: var(--xs-px);
 }
 
-.numbers-display span {
-  font-size: large;
+span.ph-numbers-display-number {
   font-weight: bold;
+}
+
+.ph-numbers-display-label{
+  font-size: small;
+  padding-left: var(--xxs-px);
 }

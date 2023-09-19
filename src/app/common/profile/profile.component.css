@@ -1,4 +1,9 @@
-.app-profile-content{
-  position: absolute;
-  top: var(--profile-header-highet);
+button.profile-action{
+  font-size: 12px;
+  background-color: var(--line-color);
+  border: 1px solid var(--line-color);
+  color: black;
+  padding: 6px 14px;
+  margin-left: var(--xs-px);
+  border-radius: 3px;
 }

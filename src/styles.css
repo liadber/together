@@ -6,6 +6,7 @@
   --profile-header-highet: 142px; /* todo it different, using the real height, more scalable*/
 
   /*Distances*/
+  --xxs-px: 4px;
   --xs-px: 10px;
   --s-px: 20px;
   --m-px: 30px;
@@ -15,6 +16,7 @@
   /*Colors*/
   --ice-line-color: #eee;
   --line-color: rgba(var(--b6a, 219, 219, 219), 1);
+  --card-bacground-color: rgba(250, 250, 250, 0.82);
   --empty-color: #fafafa;
 
   /*Z-Index*/
@@ -41,7 +43,13 @@ html, body {
   width: 100%;
 }
 
+.h-strch{
+  height: 100%;
+}
 
+.scroll-overflow-y {
+  overflow-y: scroll;
+}
 
 .flx {
   display: flex;
@@ -65,21 +73,22 @@ html, body {
   align-items: stretch;
 }
 
-
 .spc {
   justify-content: space-between;
 }
 
-button {
-  background-color: whitesmoke;
-  border: 1px solid var(--line-color);
-  color: black;
-  padding: 7px 20px;
-  border-radius: 5px;
+.center-content {
+  justify-content: center;
 }
 
-.header {
-  position: fixed;
-  left: 0;
-  right: 0;
+.align-bottom {
+  align-items: end;
+}
+
+.small-font {
+  font-size: small;
+}
+
+.flx-wrap {
+  flex-wrap: wrap;
 }

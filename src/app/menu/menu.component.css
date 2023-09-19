@@ -1,0 +1,36 @@
+.menu-app-web-name {
+  padding: var(--xs-px);
+  margin-bottom: var(--xs-px);
+}
+
+.menu-toolbar-button {
+  align-items: center;
+  display: flex;
+  padding: var(--xs-px);
+}
+
+.menu-button-label {
+  padding-left: var(--xs-px);
+}
+
+.menu-toolbar img {
+  margin-right: var(--m-px);
+}
+
+.menu-toolbar .menu-toolbar-button {
+  height: var(--l-px);
+  margin: 0 var(--m-px);
+  opacity: 0.8;
+}
+
+
+.menu-app-under-profile-header {
+  position: absolute;
+  top: var(--profile-header-highet);
+}
+
+
+a.menu-toolbar-button:link, a.menu-toolbar-button:active, a.menu-toolbar-button:visited, a.menu-toolbar-button:hover {
+  text-decoration: none;
+  color: black;
+}

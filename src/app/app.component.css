@@ -1,13 +1,9 @@
-.content {
-  align-self: center;
-  margin: 0px auto;
-  max-width: calc(var(--app-width) - 75px);
+.app-menu {
+  color: black;
+  border-right: 1px solid var(--line-color);
+  padding: var(--s-px);
+}
 
-  position: absolute;
-  display: flex;
-
-  top: var(--header-height);
-  bottom: 0;
-  right: 0; /*todo change it. it makes center.*/
-  left: 0;
+.app-page{
+  padding: var(--xs-px);
 }

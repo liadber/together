@@ -1,9 +1,11 @@
-.app-grid-cell {
+.gc-grid-cell {
   border-radius: 4px;
   border: 1px solid var(--ice-line-color);
   background-color: var(--empty-color);
-  height: 270px;
-  width: 270px;
+  min-width: 270px;
+  aspect-ratio: auto 1 / 1;
+  min-height: 270px;
+  margin-bottom: px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,16 +14,16 @@
   justify-content: space-between;
 }
 
-.display-on-hover {
+.gc-display-on-hover {
   display: none;
 }
 
-.app-grid-cell:hover .display-on-hover {
+.gc-grid-cell:hover .gc-display-on-hover {
   display: block;
   transition: 4s;
 }
 
-.left-side-note {
+.gc-days-left-note {
   background-color: #e9e9e9;
   flex-basis: 0;
   padding: 4px 45px 4px 4px;
@@ -29,7 +31,7 @@
   align-self: flex-start;
 }
 
-.topic {
+.gc-topic {
   flex-basis: available;
   background-color: #e9e9e9;
   border-radius: 30px 30px 0px 0px;
