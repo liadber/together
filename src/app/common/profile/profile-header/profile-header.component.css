@@ -32,7 +32,14 @@
 }
 
 .ph-profile-actions ::ng-deep button {
+  font-size: 12px;
+  background-color: var(--line-color);
+  border: 1px solid var(--line-color);
+  color: black;
+  padding: 6px 14px;
+  margin-left: var(--xs-px);
   margin-right: var(--xs-px);
+  border-radius: 3px;
 }
 
 .ph-numbers-display > div:not(:last-child) {
