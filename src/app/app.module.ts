@@ -9,7 +9,6 @@ import {GridCellComponent} from './common/grid/grid-cell/grid-cell.component';
 import {ProfileComponent} from './common/profile/profile.component';
 import {ProfileHeaderComponent} from './common/profile/profile-header/profile-header.component';
 import {ProjectComponent} from './common/project/project.component';
-import {ProjectGalleryComponent} from './common/project/project-gallery/project-gallery.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import {ProjectGalleryComponent} from './common/project/project-gallery/project-
     ProfileComponent,
     ProfileHeaderComponent,
     ProjectComponent,
-    ProjectGalleryComponent,
   ],
   imports: [
     BrowserModule
