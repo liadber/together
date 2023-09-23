@@ -100,7 +100,7 @@ html, body {
   background-color: var(--empty-color);
 }
 
-.picture-size {
+.picture-proportion {
   aspect-ratio: 1 / 1;
 }
 
