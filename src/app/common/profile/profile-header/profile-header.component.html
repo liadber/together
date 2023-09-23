@@ -1,13 +1,13 @@
 <div class="frow ph-profile-header">
   <div class="ph-profile-picture picture-border"></div>
-  <div class="ph-lines fcol spc">
+  <div class="text-lines fcol spc">
     <div class="frow">
-      <div class="ph-profile-name">{{profileName}}</div>
+      <div class="ph-profile-name topic">{{profileName}}</div>
       <div class="ph-profile-actions">
         <ng-container *ngTemplateOutlet="profileActionsTemplate"></ng-container>
       </div>
     </div>
-    <div class="small-font">{{profileAboutMe}}</div>
+    <div class="ph-profile-about-me">{{profileAboutMe}}</div>
     <div class="ph-numbers-display frow">
       <div class="frow" *ngFor="let numberDisplay of numbersDisplayList">
         <div class="frow align-bottom">

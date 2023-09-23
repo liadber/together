@@ -16,14 +16,12 @@
   margin-right: var(--s-px);
 }
 
-.ph-lines > :not(:last-child) {
-  margin-bottom: var(--xs-px);
-}
-
 .ph-profile-name {
   font-size: large;
-  letter-spacing: 1px;
-  font-weight: lighter;
+}
+
+.ph-profile-about-me {
+  font-size: small;
 }
 
 .ph-profile-actions ::ng-deep button {
@@ -45,7 +43,7 @@ span.ph-numbers-display-number {
   font-weight: bold;
 }
 
-.ph-numbers-display-label{
+.ph-numbers-display-label {
   font-size: small;
   padding-left: var(--xxs-px);
 }

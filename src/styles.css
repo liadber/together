@@ -90,10 +90,6 @@ html, body {
   align-items: end;
 }
 
-.small-font {
-  font-size: small;
-}
-
 .flx-wrap {
   flex-wrap: wrap;
 }
@@ -105,6 +101,14 @@ html, body {
 }
 
 .picture-size {
-  min-height: 270px;
   aspect-ratio: 1 / 1;
+}
+
+.topic{
+  letter-spacing: 1px;
+  font-weight: lighter;
+}
+
+.text-lines > :not(:last-child) {
+  margin-bottom: var(--xs-px);
 }

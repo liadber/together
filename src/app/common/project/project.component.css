@@ -1,7 +1,19 @@
-.project-card{
+.project-card {
   border-radius: 4px;
   border: 1px solid var(--ice-line-color);
-  background-color: var(--empty-color);
+  background-color: var(--card-background-color);
   margin: var(--xs-px);
 }
 
+.project-info {
+  margin: var(--xs-px);
+  overflow-x: auto;
+}
+
+.project-name {
+  font-size: x-large;
+}
+
+.project-description, .project-needs, .project-needs-topic {
+  font-size: medium;
+}
