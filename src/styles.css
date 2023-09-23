@@ -19,14 +19,6 @@
   --background-color: #efefef;
   --card-background-color: rgba(250, 250, 250, 0.4);
   --empty-color: #fafafa;
-
-  /*Z-Index*/
-  --base: 1000; /*TODO WITH CONST!*/
-  --above: 1;
-  --below: -1;
-  --header-layout: calc(var(--base) + var(--above));
-  --profile-header-layout: calc(var(--header-layout) + var(--below));
-  --zoom-layout: 7000;
 }
 
 /* You can add global styles to this file, and also import other style files */
@@ -78,15 +70,15 @@ html, body {
   align-items: stretch;
 }
 
-.spc {
+.flx-spc-between {
   justify-content: space-between;
 }
 
-.center-content {
+.flx-center-content {
   justify-content: center;
 }
 
-.align-bottom {
+.flx-align-bottom {
   align-items: end;
 }
 

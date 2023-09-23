@@ -1,18 +1,17 @@
-
 .ph-container {
   justify-content: center;
   background-color: whitesmoke;
 }
 
 .ph-profile-header {
+  padding: var(--xs-px);
   border-bottom: 1px solid var(--line-color);
   width: 100%;
-  padding: var(--s-px) 0px;
+  padding-bottom: var(--s-px);
 }
 
 .ph-profile-picture {
   height: 100%;
-  aspect-ratio: 1 / 1;
   margin-right: var(--s-px);
 }
 
