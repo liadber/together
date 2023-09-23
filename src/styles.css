@@ -40,8 +40,12 @@ html, body {
   height: 100%;
 }
 
+.min-height-0 {
+  min-height: 0;
+}
+
 .scroll-overflow-y {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .flx {
@@ -62,12 +66,24 @@ html, body {
   justify-content: stretch;
 }
 
+.flx-jc-flex-end {
+  justify-content: flex-end;
+}
+
 .flx-ac-stretch {
   justify-content: stretch;
 }
 
 .flx-ai-stretch {
   align-items: stretch;
+}
+
+.flx-grow-1 {
+  flex-grow: 1;
+}
+
+.flx-grow-4 {
+  flex-grow: 4;
 }
 
 .flx-spc-between {
@@ -96,7 +112,7 @@ html, body {
   aspect-ratio: 1 / 1;
 }
 
-.topic{
+.topic {
   letter-spacing: 1px;
   font-weight: lighter;
 }
