@@ -23,13 +23,6 @@
   opacity: 0.8;
 }
 
-
-.menu-app-under-profile-header {
-  position: absolute;
-  top: var(--profile-header-highet);
-}
-
-
 a.menu-toolbar-button:link, a.menu-toolbar-button:active, a.menu-toolbar-button:visited, a.menu-toolbar-button:hover {
   text-decoration: none;
   color: black;
