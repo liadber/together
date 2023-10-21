@@ -1,29 +1,29 @@
-.menu-app-web-name {
+.navbar-web-name {
   padding: var(--xs-px);
   margin-bottom: var(--xs-px);
 }
 
-.menu-toolbar-button {
+.navbar-button {
   align-items: center;
   display: flex;
   padding: var(--xs-px);
 }
 
-.menu-button-label {
+.navbar-button-label {
   padding-left: var(--xs-px);
 }
 
-.menu-toolbar img {
+.navbar img {
   margin-right: var(--m-px);
 }
 
-.menu-toolbar .menu-toolbar-button {
+.navbar .navbar-button {
   height: var(--l-px);
   margin: 0 var(--m-px);
   opacity: 0.8;
 }
 
-a.menu-toolbar-button:link, a.menu-toolbar-button:active, a.menu-toolbar-button:visited, a.menu-toolbar-button:hover {
+a.navbar-button:link, a.navbar-button:active, a.navbar-button:visited, a.navbar-button:hover {
   text-decoration: none;
   color: black;
 }
