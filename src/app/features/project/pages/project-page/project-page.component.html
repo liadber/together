@@ -4,11 +4,11 @@
       <button>Believe</button>
     </ng-template>
   </app-profile-header>
-  <div class="frow min-height-0  project-card flx-grow-4">
+  <div [formGroup]="projectForm" class="frow min-height-0  project-card flx-grow-4">
     <div class="flx picture-proportion picture-border"></div>
     <div class="fcol h-strch w-strch text-lines project-info">
       <div class="fcol min-height-0 h-strch w-strch text-lines">
-        <div class="project-name topic">New Album</div>
+        <input formControlName="projectName" class="project-name topic">
         <div class="flx  scroll-overflow-y project-description">
           Hey everyone...
           <br>I’m a singer in my beginning. Looking for a cool producer to do some shit together.
@@ -53,7 +53,7 @@
         </div>
       </div>
       <div class="fcol min-height-0 h-strch text-lines flx-jc-flex-end">
-        <div class="project-needs-topic topic">Needs:</div>
+        <div class="project-needs-topic topic">In Demand:</div>
         <div class="fcol w-strch project-needs scroll-overflow-y ">
           <ul>
             <li>Producer</li>
