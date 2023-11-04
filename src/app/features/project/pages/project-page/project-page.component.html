@@ -8,62 +8,15 @@
     <div class="flx picture-proportion picture-border"></div>
     <div class="fcol h-strch w-strch text-lines project-info">
       <div class="fcol min-height-0 h-strch w-strch text-lines">
-        <input formControlName="projectName" class="project-name topic">
-        <div class="flx  scroll-overflow-y project-description">
-          Hey everyone...
-          <br>I’m a singer in my beginning. Looking for a cool producer to do some shit together.
-          <br> I want to make a song+clip to make a breakthrough.
-          <br> I’m looking for beginners semi-professionals to start an interesting way together. <br>I’m a singer in my
-          beginning. Looking for a cool producer to do some shit together.
-          <br> I want to make a song+clip to make a breakthrough.
-          <br> I’m looking for beginners semi-professionals to start an interesting way together. <br>I’m a singer in my
-          beginning. Looking for a cool producer to do some shit together.
-          <br> I want to make a song+clip to make a breakthrough.
-          <br> I’m looking for beginners semi-professionals to start an interesting way together. <br>I’m a singer in my
-          beginning. Looking for a cool producer to do some shit together.
-          <br> I want to make a song+clip to make a breakthrough.
-          <br> I’m looking for beginners semi-professionals to start an interesting way together. <br>I’m a singer in my
-          beginning. Looking for a cool producer to do some shit together.
-          <br> I want to make a song+clip to make a breakthrough.
-          <br> I’m looking for beginners semi-professionals to start an interesting way together. <br>I’m a singer in my
-          beginning. Looking for a cool producer to do some shit together.
-          <br> I want to make a song+clip to make a breakthrough.
-          <br> I’m looking for beginners semi-professionals to start an interesting way together. <br>I’m a singer in my
-          beginning. Looking for a cool producer to do some shit together.
-          <br> I want to make a song+clip to make a breakthrough.
-          <br> I’m looking for beginners semi-professionals to start an interesting way together. <br>I’m a singer in my
-          beginning. Looking for a cool producer to do some shit together.
-          <br> I want to make a song+clip to make a breakthrough.
-          <br> I’m looking for beginners semi-professionals to start an interesting way together. <br>I’m a singer in my
-          beginning. Looking for a cool producer to do some shit together.
-          <br> I want to make a song+clip to make a breakthrough.
-          <br> I’m looking for beginners semi-professionals to start an interesting way together. <br>I’m a singer in my
-          beginning. Looking for a cool producer to do some shit together.
-          <br> I want to make a song+clip to make a breakthrough.
-          <br> I’m looking for beginners semi-professionals to start an interesting way together. <br>I’m a singer in my
-          beginning. Looking for a cool producer to do some shit together.
-          <br> I want to make a song+clip to make a breakthrough.
-          <br> I’m looking for beginners semi-professionals to start an interesting way together. <br>I’m a singer in my
-          beginning. Looking for a cool producer to do some shit together.
-          <br> I want to make a song+clip to make a breakthrough.
-          <br> I’m looking for beginners semi-professionals to start an interesting way together. <br>I’m a singer in my
-          beginning. Looking for a cool producer to do some shit together.
-          <br> I want to make a song+clip to make a breakthrough.
-          <br> I’m looking for beginners semi-professionals to start an interesting way together.
-        </div>
+        <input formControlName="projectName" class="project-input project-name topic">
+        <textarea formControlName="projectDescription"
+                  class="project-input flx h-strch scroll-overflow-y project-description"></textarea>
       </div>
       <div class="fcol min-height-0 h-strch text-lines flx-jc-flex-end">
         <div class="project-needs-topic topic">In Demand:</div>
-        <div class="fcol w-strch project-needs scroll-overflow-y ">
-          <ul>
-            <li>Producer</li>
-            <li>Record studio owner</li>
-            <li>Guitarist</li>
-            <li>Record company</li>
-            <li>Fashionista</li>
-            <li>Makeup artist</li>
-            <li>Decorator</li>
-          </ul>
+        <div formArrayName="inDemand" class="fcol w-strch project-needs scroll-overflow-y ">
+          <input class="project-input" *ngFor="let professional of inDemand.controls; let i=index" [formControlName]="i"
+                 [value]="professional">
         </div>
       </div>
     </div>
