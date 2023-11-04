@@ -1,6 +1,8 @@
 .button-color{
   background-color: var(--line-color);
   border: 1px solid var(--line-color);
+  border-radius: 5px;
+  padding: 2px 3px 0px 3px;
 }
 
 .button-color:hover:not([disabled]){

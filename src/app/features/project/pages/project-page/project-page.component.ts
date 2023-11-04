@@ -68,6 +68,10 @@ export class ProjectPageComponent implements OnInit {
     (this.projectForm.get('inDemand') as FormArray).removeAt(index);
   }
 
+  onSubmit() {
+    this.editMode = false;
+    console.warn(this.projectForm.value);
+  }
 
   constructor(private fb: FormBuilder) {
   }
