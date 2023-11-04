@@ -3,22 +3,17 @@
   border: 1px solid var(--ice-line-color);
   background-color: var(--card-background-color);
   padding: var(--xs-px);
+  min-height: 200px;
+  min-width: 200px;
 }
 
 .project-info {
   margin: var(--xs-px);
 }
 
-.project-name {
+.project-name, .project-needs-topic {
   font-size: x-large;
 }
-
-.project-description, .project-needs, .project-needs-topic {
+.project-description, .project-needs {
   font-size: medium;
-}
-
-.project-input {
-  background: transparent;
-  border: 0 none;
-  resize: none;
 }

@@ -8,28 +8,26 @@ import {Validators} from '@angular/forms';
   styleUrls: ['./project-page.component.css']
 })
 export class ProjectPageComponent implements OnInit {
-
-  @Input() editMode: boolean = true;
-
+  private _editMode: boolean = false;
   projectForm = this.fb.group({
     projectName: ['New Album', Validators.required],
-    projectDescription: ['Hey everyone...\n' +
-    'I’m a singer in my beginning. Looking for a cool producer to do some shit together.\n' +
-    'I want to make a song+clip to make a breakthrough.\n' +
-    'I’m looking for beginners semi-professionals to start an interesting way together.\n' +
-    'I’m a singer in my beginning.\n' +
-    'Looking for a cool producer to do some shit together.\n' +
-    'I’m a singer in my beginning. Looking for a cool producer to do some shit together.\n' +
-    'I want to make a song+clip to make a breakthrough.\n' +
-    'I’m looking for beginners semi-professionals to start an interesting way together.\n' +
-    'I’m a singer in my beginning.\n' +
-    'Looking for a cool producer to do some shit together.\n' +
-    'I’m a singer in my beginning. Looking for a cool producer to do some shit together.\n' +
-    'I want to make a song+clip to make a breakthrough.\n' +
-    'I’m looking for beginners semi-professionals to start an interesting way together.\n' +
-    'I’m a singer in my beginning.\n' +
-    'Looking for a cool producer to do some shit together.\n'
-    ],
+    projectDescription: [
+      'Hey everyone...\n' +
+      'I’m a singer in my beginning. Looking for a cool producer to do some shit together.\n' +
+      'I want to make a song+clip to make a breakthrough.\n' +
+      'I’m looking for beginners semi-professionals to start an interesting way together.\n' +
+      'I’m a singer in my beginning.\n' +
+      'Looking for a cool producer to do some shit together.\n' +
+      'I’m a singer in my beginning. Looking for a cool producer to do some shit together.\n' +
+      'I want to make a song+clip to make a breakthrough.\n' +
+      'I’m looking for beginners semi-professionals to start an interesting way together.\n' +
+      'I’m a singer in my beginning.\n' +
+      'Looking for a cool producer to do some shit together.\n' +
+      'I’m a singer in my beginning. Looking for a cool producer to do some shit together.\n' +
+      'I want to make a song+clip to make a breakthrough.\n' +
+      'I’m looking for beginners semi-professionals to start an interesting way together.\n' +
+      'I’m a singer in my beginning.\n' +
+      'Looking for a cool producer to do some shit together.\n'],
     projectPicture: [],
     inDemand: this.fb.array([
       this.fb.control('Producer'),
@@ -49,14 +47,33 @@ export class ProjectPageComponent implements OnInit {
     ])
   });
 
+  get editMode(): boolean {
+    return this._editMode;
+  }
+
+  set editMode(value: boolean) {
+    value ? this.projectForm.enable() : this.projectForm.disable();
+    this._editMode = value;
+  }
+
   get inDemand() {
     return this.projectForm.get('inDemand') as FormArray;
   }
+
+  addRole() {
+    (this.projectForm.get('inDemand') as FormArray).insert(0, this.fb.control('', Validators.required));
+  }
+
+  removeRoleAt(index: number) {
+    (this.projectForm.get('inDemand') as FormArray).removeAt(index);
+  }
+
 
   constructor(private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
+    this.editMode = false;
   }
 
 }

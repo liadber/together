@@ -8,15 +8,59 @@
     <div class="flx picture-proportion picture-border"></div>
     <div class="fcol h-strch w-strch text-lines project-info">
       <div class="fcol min-height-0 h-strch w-strch text-lines">
-        <input formControlName="projectName" class="project-input project-name topic">
+        <div class="frow">
+          <input formControlName="projectName" class="form-input project-name topic w-strch">
+          <div (click)="editMode = true" *ngIf="!editMode" class="form-button-size button-color">
+            <svg aria-label="Edit" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M14 4a.5.5 0 0 0 0-1v1zm7 6a.5.5 0 0 0-1 0h1zm-7-7H4v1h10V3zM3 4v16h1V4H3zm1 17h16v-1H4v1zm17-1V10h-1v10h1zm-1 1a1 1 0 0 0 1-1h-1v1zM3 20a1 1 0 0 0 1 1v-1H3zM4 3a1 1 0 0 0-1 1h1V3z"
+                fill="currentColor"></path>
+              <path
+                d="M17.5 4.5l-8.46 8.46a.25.25 0 0 0-.06.1l-.82 2.47c-.07.2.12.38.31.31l2.47-.82a.25.25 0 0 0 .1-.06L19.5 6.5m-2-2l2.32-2.32c.1-.1.26-.1.36 0l1.64 1.64c.1.1.1.26 0 .36L19.5 6.5m-2-2l2 2"
+                stroke="currentColor"></path>
+            </svg>
+          </div>
+          <button type="submit" [disabled]="!this.projectForm.valid" *ngIf="editMode"  class="form-submit-button form-button-size button-color">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path
+                d="M20 12.194v9.806h-20v-20h18.272l-1.951 2h-14.321v16h16v-5.768l2-2.038zm.904-10.027l-9.404 9.639-4.405-4.176-3.095 3.097 7.5 7.273 12.5-12.737-3.096-3.096z"/>
+            </svg>
+          </button>
+        </div>
         <textarea formControlName="projectDescription"
-                  class="project-input flx h-strch scroll-overflow-y project-description"></textarea>
+                  class="form-input flx h-strch scroll-overflow-y project-description"></textarea>
       </div>
       <div class="fcol min-height-0 h-strch text-lines flx-jc-flex-end">
-        <div class="project-needs-topic topic">In Demand:</div>
-        <div formArrayName="inDemand" class="fcol w-strch project-needs scroll-overflow-y ">
-          <input class="project-input" *ngFor="let role of inDemand.controls; let i=index" [formControlName]="i"
-                 [value]="role">
+        <div class="frow">
+          <div class="project-needs-topic topic w-strch">In Demand:</div>
+          <div (click)="addRole()" *ngIf="editMode" class="form-button-size button-color">
+            <svg aria-label="New role" class="x1lliihq x1n2onr6 x5n08af" fill="currentColor"
+                 width="24" height="24" viewBox="0 0 24 24"
+                 role="img">
+              <path
+                d="M2 12v3.45c0 2.849.698 4.005 1.606 4.944.94.909 2.098 1.608 4.946 1.608h6.896c2.848 0 4.006-.7 4.946-1.608C21.302 19.455 22 18.3 22 15.45V8.552c0-2.849-.698-4.006-1.606-4.945C19.454 2.7 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.547 2 5.703 2 8.552Z"
+                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2"></path>
+              <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    x1="6.545" x2="17.455" y1="12.001" y2="12.001"></line>
+              <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    x1="12.003" x2="12.003" y1="6.545" y2="17.455"></line>
+            </svg>
+          </div>
+        </div>
+        <div formArrayName="inDemand" class="fcol w-strch project-needs scroll-overflow-y">
+          <div class="frow" *ngFor="let role of inDemand.controls; let i=index">
+            <input class="form-input w-strch"
+                   [value]="role.value" [formControlName]="i">
+            <div *ngIf="editMode" (click)="removeRoleAt(i)" class="form-button-size button-color">
+              <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" overflow="visible"
+                   stroke="black" stroke-width="2" stroke-linecap="round">
+                <line x2="5" y2="5"/>
+                <line x1="5" y2="5"/>
+              </svg>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

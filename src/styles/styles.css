@@ -18,6 +18,8 @@
   --line-color: rgba(var(--b6a, 219, 219, 219), 1);
   --background-color: #efefef;
   --card-background-color: rgba(250, 250, 250, 0.4);
+  --dark-color: rgba(47, 47, 47, 0.45);
+  --very-dark-color: rgb(37, 37, 37);
   --empty-color: #fafafa;
 }
 

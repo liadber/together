@@ -1,0 +1,9 @@
+.button-color{
+  background-color: var(--line-color);
+  border: 1px solid var(--line-color);
+}
+
+.button-color:hover:not([disabled]){
+  background-color: var(--dark-color);
+  border: 1px solid var(--line-color);
+}

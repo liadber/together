@@ -24,7 +24,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles/styles.css",
+              "src/styles/form.css",
+              "src/styles/button.css"
             ],
             "scripts": []
           },
