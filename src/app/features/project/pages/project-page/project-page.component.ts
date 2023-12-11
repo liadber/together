@@ -1,11 +1,14 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormArray, FormBuilder} from '@angular/forms';
-import {Validators} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormArray, FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
+import {CommonModule} from "@angular/common";
+import {ProfileHeaderComponent} from "../../../../shared/components/profile-header/profile-header.component";
 
 @Component({
   selector: 'app-project-page',
+  standalone: true,
+  imports: [CommonModule, ProfileHeaderComponent, ReactiveFormsModule],
   templateUrl: './project-page.component.html',
-  styleUrls: ['./project-page.component.css']
+  styleUrls: ['./project-page.component.scss']
 })
 export class ProjectPageComponent implements OnInit {
   private _editMode: boolean = false;
@@ -79,5 +82,4 @@ export class ProjectPageComponent implements OnInit {
   ngOnInit(): void {
     this.editMode = false;
   }
-
 }
