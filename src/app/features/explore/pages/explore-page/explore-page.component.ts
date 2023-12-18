@@ -1,15 +1,17 @@
 import {Component, OnInit} from '@angular/core';
+import {GridComponent} from "../../../../shared/components/grid/grid.component";
 
 @Component({
   selector: 'app-explore-page',
   standalone: true,
-  imports: [],
+  imports: [GridComponent],
   templateUrl: './explore-page.component.html',
   styleUrl: './explore-page.component.scss'
 })
-export class ExplorePageComponentimplements implements OnInit {
+export class ExplorePageComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
