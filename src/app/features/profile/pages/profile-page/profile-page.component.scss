@@ -1,0 +1,5 @@
+@import '../../../../app.component';
+
+:host {
+  @include page-container;
+}

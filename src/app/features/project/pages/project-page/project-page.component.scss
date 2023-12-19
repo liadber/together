@@ -1,3 +1,9 @@
+@import '../../../../app.component';
+
+:host {
+  @include page-container;
+}
+
 .project-card {
   border-radius: 4px;
   border: 1px solid var(--ice-line-color);

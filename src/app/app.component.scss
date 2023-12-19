@@ -7,3 +7,9 @@
 .app-page{
   padding: var(--xs-px);
 }
+
+@mixin page-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
