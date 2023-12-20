@@ -11,10 +11,6 @@ import {ProfileHeaderComponent} from "../../../../shared/components/profile-head
 })
 export class ProfilePageComponent implements OnInit {
 
-  constructor() {
-  }
-
   ngOnInit(): void {
   }
-
 }

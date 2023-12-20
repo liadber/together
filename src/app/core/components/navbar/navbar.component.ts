@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
 import {RouterLink} from "@angular/router";
-// import {Store} from "@ngrx/store";
+import {Store} from "@ngrx/store";
+import {ProfileActions} from "../../../store/profile-store/profile.actions";
+import {selectCurrentProfileId} from "../../../store/selectors";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-navbar',
@@ -10,9 +12,22 @@ import {RouterLink} from "@angular/router";
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+
+  private currentProfileId$: Observable<string | null>;
+
+  constructor(private store: Store) {
+    this.currentProfileId$ = this.store.select(selectCurrentProfileId);
+  }
 
   ngOnInit() {
+  }
 
+  profileClicked() {
+    this.currentProfileId$.subscribe(currentProfileId => {
+      if (currentProfileId) {
+        this.store.dispatch(ProfileActions.loadProfile({profileId: currentProfileId}));
+      }
+    });
   }
 }

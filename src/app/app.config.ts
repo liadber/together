@@ -6,17 +6,16 @@ import {appState} from "./store/reducer";
 import {provideStoreDevtools} from "@ngrx/store-devtools";
 import {AppEffects} from "./store/effects";
 import {provideEffects} from "@ngrx/effects";
+import {ProfileEffects} from "./store/profile-store/profile.effects";
+import {profileFeature} from "./store/profile-store/profile.reducer";
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),
     provideStore(),
     provideState(appState),
     provideEffects(AppEffects, AppEffects),
-
-    // provideState(profileFeature),
-    // provideEffects(ProfileEffects, ProfileEffects),
-    // todo: next git
-
+    provideState(profileFeature),
+    provideEffects(ProfileEffects, ProfileEffects),
     provideStoreDevtools({ //todo: delete after debug
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode

@@ -1,5 +1,10 @@
-import {Component, ContentChild, Input, OnInit, TemplateRef} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CommonModule} from "@angular/common";
+import {Observable} from "rxjs";
+import {Store} from "@ngrx/store";
+import {Profile} from "../../../../assets/models/profile.model";
+import {selectCurrentProfileId} from "../../../store/selectors";
+import {selectProfileFeature} from "../../../store/profile-store/profile.selectors";
 
 @Component({
   selector: 'app-profile-header',
@@ -12,17 +17,21 @@ export class ProfileHeaderComponent implements OnInit {
 
   @Input() profileName: string = 'Billie Eilish'; //todo: limit number of letter
   @Input() profileAboutMe: string = 'A sing-song-writer, producer, artist and an activist. Hope to get some new co-workers to get my ideas come true.'; //todo: limit number of letter
-  @ContentChild('profileActions', {static: true}) profileActionsTemplate: TemplateRef<any>;
   @Input() numbersDisplayList: { label: string, number: number }[] = [
     {label: 'Projects', number: 67},
     {label: 'Believers', number: 90},
     // {label: 'Beliefs', number: 56}
   ];
+  currentProfileId$: Observable<string>;
+  displayedProfile$: Observable<Profile | null>;
 
-  constructor() {
+  constructor(private store: Store) {
+    this.currentProfileId$ = this.store.select(selectCurrentProfileId);
+    this.displayedProfile$ = this.store.select(selectProfileFeature);
   }
 
   ngOnInit(): void {
+    // const profileId = 'your-profile-id'; // Replace with the actual profileId
+    // this.store.dispatch(ProfileActions.loadProfile({ profileId }));
   }
-
 }

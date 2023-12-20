@@ -44,5 +44,8 @@ span.ph-numbers-display-number {
 
 .ph-numbers-display-label {
   font-size: small;
+}
+
+.ph-numbers-display > :not(:first-child){
   padding-left: var(--xxs-px);
 }
