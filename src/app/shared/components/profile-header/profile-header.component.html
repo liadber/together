@@ -2,16 +2,16 @@
   <div class="ph-profile-picture picture-proportion picture-border"></div>
   <div class="text-lines fcol flx-spc-between">
     <div class="frow">
-      <div class="ph-profile-name topic">{{profile.profileName}}</div>
-      <div *ngIf="(currentProfileId$ | async) !== profile.profileId" class="ph-profile-actions">
+      <div class="ph-profile-name topic">{{profile.name}}</div>
+      <div *ngIf="(currentProfileId$ | async) !== profile.id" class="ph-profile-actions">
         <button>Believe</button>
       </div>
     </div>
-    <div class="ph-profile-about-me">{{profile.profileAboutMe}}</div>
+    <div class="ph-profile-about-me">{{profile.aboutMe}}</div>
     <div class="ph-numbers-display frow flx-align-bottom">
-      <span class="ph-numbers-display-number ">{{profile.profileBelieversNumber}}</span>
+      <span class="ph-numbers-display-number ">{{profile.believersNumber}}</span>
       <div class="ph-numbers-display-label ">Believers</div>
-      <span class="ph-numbers-display-number ">{{profile.profileProjectsNumber}}</span>
+      <span class="ph-numbers-display-number ">{{profile.projectsNumber}}</span>
       <div class="ph-numbers-display-label ">Projects</div>
     </div>
   </div>

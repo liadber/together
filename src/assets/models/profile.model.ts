@@ -1,8 +1,8 @@
 export interface Profile{
-  profileId: string;
-  profileName: string;
-  profileAboutMe: string;
-  profileProjectsNumber: number;
-  profileBelieversNumber: number;
-  profileImgUrl: string;
+  id: string;
+  name: string;
+  aboutMe: string;
+  projectsNumber: number;
+  believersNumber: number;
+  imgUrl: string;
 }

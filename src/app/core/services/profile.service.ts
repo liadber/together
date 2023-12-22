@@ -15,12 +15,12 @@ export class ProfileService {
     // const url = `${this.baseUrl}/profiles/${profileId}`; // Adjust your endpoint accordingly
     // return this.http.get<Profile>(url);
     return of({
-      profileId: "currentUserId123",
-      profileName: "Billie Eilish",
-      profileAboutMe: 'A sing-song-writer, producer, artist and an activist. Hope to get some new co-workers to get my ideas come true.',
-      profileProjectsNumber: 67,
-      profileBelieversNumber: 90,
-      profileImgUrl: ""
+      id: "currentUserId123",
+      name: "Billie Eilish",
+      aboutMe: 'A sing-song-writer, producer, artist and an activist. Hope to get some new co-workers to get my ideas come true.',
+      projectsNumber: 67,
+      believersNumber: 90,
+      imgUrl: ""
     })
 
   }
