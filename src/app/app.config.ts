@@ -8,6 +8,8 @@ import {AppEffects} from "./store/effects";
 import {provideEffects} from "@ngrx/effects";
 import {ProfileEffects} from "./store/profile-store/profile.effects";
 import {profileFeature} from "./store/profile-store/profile.reducer";
+import {projectFeature} from "./store/project-store/project.reducer";
+import {ProjectEffects} from "./store/project-store/project.effects";
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),
@@ -16,6 +18,8 @@ export const appConfig: ApplicationConfig = {
     provideEffects(AppEffects, AppEffects),
     provideState(profileFeature),
     provideEffects(ProfileEffects, ProfileEffects),
+    provideState(projectFeature),
+    provideEffects(ProjectEffects, ProjectEffects),
     provideStoreDevtools({ //todo: delete after debug
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode

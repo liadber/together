@@ -1,4 +1,4 @@
 <div class="fcol h-strch">
   <app-profile-header class="frow flx-grow-1"></app-profile-header>
-  <app-grid class="flx scroll-overflow-y"></app-grid>
+  <app-grid [projects]="(projectsGrid$ | async)" class="flx scroll-overflow-y"></app-grid>
 </div>

@@ -1,7 +1,9 @@
 export interface Project {
+  projectId: string;
+  profileId: string;
   name: string;
-  projectPhotoUrl: string;
-  projectVideoUrl: string;
+  description: string;
+  photoUrl: string;
   daysLeft: number;
-  stage: string; /*condition: 10 characters only, ${daysLeft} to ${stage}*/
+  inDemand: string[];
 }

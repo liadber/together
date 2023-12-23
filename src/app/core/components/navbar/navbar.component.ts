@@ -4,6 +4,7 @@ import {Store} from "@ngrx/store";
 import {ProfileActions} from "../../../store/profile-store/profile.actions";
 import {selectCurrentProfileId} from "../../../store/selectors";
 import {Observable} from "rxjs";
+import {ProjectActions} from "../../../store/project-store/project.actions";
 
 @Component({
   selector: 'app-navbar',
@@ -27,7 +28,12 @@ export class NavbarComponent implements OnInit {
     this.currentProfileId$.subscribe(currentProfileId => {
       if (currentProfileId) {
         this.store.dispatch(ProfileActions.loadProfile({profileId: currentProfileId}));
+        this.store.dispatch(ProjectActions.loadProjectsByProfileId({profileId: currentProfileId}));
       }
     });
+  }
+
+  exploreClicked() {
+    this.store.dispatch(ProjectActions.loadRandomProjects());
   }
 }
