@@ -5,11 +5,13 @@ import {Store} from "@ngrx/store";
 import {Profile} from "../../../../assets/models/profile.model";
 import {selectCurrentProfileId} from "../../../store/selectors";
 import {selectProfileFeature} from "../../../store/profile-store/profile.selectors";
+import {RouterLink} from "@angular/router";
+import {ProjectActions} from "../../../store/project-store/project.actions";
 
 @Component({
   selector: 'app-profile-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './profile-header.component.html',
   styleUrl: './profile-header.component.scss'
 })
@@ -33,5 +35,9 @@ export class ProfileHeaderComponent implements OnInit {
   ngOnInit(): void {
     // const profileId = 'your-profile-id'; // Replace with the actual profileId
     // this.store.dispatch(ProfileActions.loadProfile({ profileId }));
+  }
+
+  profileClicked(id: string) {
+    this.store.dispatch(ProjectActions.loadProjectsByProfileId({profileId: id}));
   }
 }

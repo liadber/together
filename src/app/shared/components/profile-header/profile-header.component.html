@@ -1,4 +1,4 @@
-<div *ngIf="(displayedProfile$ | async) as profile" class="frow ph-profile-header">
+<div *ngIf="(displayedProfile$ | async) as profile" (click)="profileClicked(profile.id)"  routerLink="/profile" class="frow ph-profile-header">
   <div class="ph-profile-picture picture-proportion picture-border"></div>
   <div class="text-lines fcol flx-spc-between">
     <div class="frow">

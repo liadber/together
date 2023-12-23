@@ -18,9 +18,19 @@ export class ProjectService {
   }
 
   getProjectsByProfileId(profileId: string): Observable<Project[]> {
-    return of([demoProject1,
-      // demoProject, demoProject, demoProject, demoProject,
-      demoProject, demoProject]);
+    if (profileId === "currentUserId123") {
+      return of([demoProject1,
+        // demoProject, demoProject, demoProject, demoProject,
+        demoProject, demoProject]);
+    }else{
+      return of([demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
+        demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
+        demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
+        demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
+        demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
+        demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
+        demoProjectAmy, demoProjectAmy]);
+    }
   }
 
   getRandomProjects(): Observable<Project[]> {

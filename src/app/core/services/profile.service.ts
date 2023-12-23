@@ -24,7 +24,6 @@ export class ProfileService {
         imgUrl: ""
       })
     } else {
-      console.log((profileId === "currentUserId123") + " " + profileId)
       return of({
         id: "differentUser",
         name: "Amy Winehouse",
