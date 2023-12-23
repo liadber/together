@@ -1,13 +1,9 @@
-.ph-container {
-  justify-content: center;
-  background-color: whitesmoke;
-}
-
 .ph-profile-header {
   padding: var(--xs-px);
   border-bottom: 1px solid var(--line-color);
   width: 100%;
   padding-bottom: var(--s-px);
+  max-height: 100px;
 }
 
 .ph-profile-picture {
