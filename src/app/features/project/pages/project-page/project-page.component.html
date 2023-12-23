@@ -6,7 +6,7 @@
       <div class="fcol min-height-0 h-strch w-strch text-lines">
         <div class="frow">
           <input id="name" formControlName="name" class="form-input project-name topic w-strch">
-          <div (click)="editMode = true" *ngIf="!editMode" class="button-color">
+          <div (click)="editMode = true" *ngIf="((currentProfileId$ | async) === (currentProject$ |async)?.profileId) &&  !editMode" class="button-color">
             <svg aria-label="Edit" width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
                 d="M14 4a.5.5 0 0 0 0-1v1zm7 6a.5.5 0 0 0-1 0h1zm-7-7H4v1h10V3zM3 4v16h1V4H3zm1 17h16v-1H4v1zm17-1V10h-1v10h1zm-1 1a1 1 0 0 0 1-1h-1v1zM3 20a1 1 0 0 0 1 1v-1H3zM4 3a1 1 0 0 0-1 1h1V3z"

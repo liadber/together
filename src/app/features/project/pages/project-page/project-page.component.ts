@@ -7,6 +7,7 @@ import {Project} from "../../../../../assets/models/project.model";
 import {selectCurrentProject} from "../../../../store/project-store/project.selectors";
 import {Store} from "@ngrx/store";
 import {ProjectActions} from "../../../../store/project-store/project.actions";
+import {selectCurrentProfileId} from "../../../../store/selectors";
 
 @Component({
   selector: 'app-project-page',
@@ -16,6 +17,7 @@ import {ProjectActions} from "../../../../store/project-store/project.actions";
   styleUrls: ['./project-page.component.scss']
 })
 export class ProjectPageComponent implements OnInit {
+  currentProfileId$: Observable<string | null>;
   private _editMode: boolean = false;
   currentProject$: Observable<Project | null>;
 
@@ -102,6 +104,7 @@ export class ProjectPageComponent implements OnInit {
   ngOnInit(): void {
     this.editMode = false;
     this.currentProject$ = this.store.select(selectCurrentProject);
+    this.currentProfileId$ = this.store.select(selectCurrentProfileId);
     if (this.currentProject$) {
       this.currentProject$.subscribe((currentProject) => {
           const inDemandArray = currentProject?.inDemand ?? [];
