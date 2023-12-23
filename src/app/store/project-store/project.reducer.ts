@@ -1,6 +1,4 @@
 import {createFeature, createReducer, on} from "@ngrx/store";
-import {initialProfileState} from "../profile-store/profile.state";
-import {ProfileActions} from "../profile-store/profile.actions";
 import {initialProjectsState} from "./project.state";
 import {ProjectActions} from "./project.actions";
 
@@ -20,5 +18,11 @@ export const projectFeature = createFeature({
       ...state,
       currentProject: currentProject
     })),
+    on(ProjectActions.updateProject, (state, {updatedProject}) => {
+      const updatedProjectsGrid = state.projectsGrid.map((project) =>
+        project.projectId === updatedProject.projectId ? {...project, ...updatedProject} : project
+      );
+      return {...state, projectsGrid: updatedProjectsGrid};
+    })
   ),
 });

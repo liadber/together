@@ -24,7 +24,6 @@ export class ProjectEffects {
     )
   ));
 
-
   getRandomProjects$ = createEffect(() => this.actions$.pipe(
     ofType(ProjectActions.loadRandomProjects),
     switchMap(() =>
@@ -34,5 +33,18 @@ export class ProjectEffects {
       )
     )
   ));
+
+  updateProject$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ProjectActions.updateProject),
+      switchMap(action =>
+        this.projectService.updateProject(action.updatedProject).pipe(
+          map(() => ProjectActions.updateProjectSuccess()),
+          catchError(error => of(ProjectActions.updateProjectFailure({ error })))
+        )
+      )
+    )
+  );
+
 
 }

@@ -42,6 +42,10 @@ export class ProjectService {
       demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
       demoProjectAmy, demoProjectAmy]);
   }
+
+  updateProject(updatedProject: Project) {
+    return of(true);
+  }
 }
 
 const demoProject: Project = {

@@ -6,6 +6,7 @@ import {Observable} from "rxjs";
 import {Project} from "../../../../../assets/models/project.model";
 import {selectCurrentProject} from "../../../../store/project-store/project.selectors";
 import {Store} from "@ngrx/store";
+import {ProjectActions} from "../../../../store/project-store/project.actions";
 
 @Component({
   selector: 'app-project-page',
@@ -19,8 +20,8 @@ export class ProjectPageComponent implements OnInit {
   currentProject$: Observable<Project | null>;
 
   projectForm = this.fb.group({
-    projectName: ['New Album', Validators.required],
-    projectDescription: [
+    name: ['New Album', Validators.required],
+    description: [
       'Hey everyone...\n' +
       'I’m a singer in my beginning. Looking for a cool producer to do some shit together.\n' +
       'I want to make a song+clip to make a breakthrough.\n' +
@@ -37,7 +38,7 @@ export class ProjectPageComponent implements OnInit {
       'I’m looking for beginners semi-professionals to start an interesting way together.\n' +
       'I’m a singer in my beginning.\n' +
       'Looking for a cool producer to do some shit together.\n'],
-    projectPicture: "",
+    photoUrl: "",
     inDemand: this.fb.array([
       this.fb.control('Producer'),
       this.fb.control('Record studio owner'),
@@ -79,8 +80,21 @@ export class ProjectPageComponent implements OnInit {
 
   onSubmit() {
     this.editMode = false;
-    console.warn(this.projectForm.value);
+    const projectFormValue = this.projectForm.value;
+    this.currentProject$.subscribe((currentProject) => {
+      if (currentProject) {
+        const updatedProject: Project = {
+          ...currentProject as Project,
+          name: projectFormValue.name || '',
+          description: projectFormValue.description || '',
+          photoUrl: projectFormValue.photoUrl || '',
+          inDemand: projectFormValue.inDemand?.map((x: string | null) => x ?? '') || [],
+        };
+        this.store.dispatch(ProjectActions.updateProject({updatedProject}));
+      }
+    });
   }
+
 
   constructor(private fb: FormBuilder, private store: Store) {
   }
@@ -93,11 +107,10 @@ export class ProjectPageComponent implements OnInit {
           const inDemandArray = currentProject?.inDemand ?? [];
           this.inDemand.setValue(inDemandArray);
 
-
           this.projectForm.patchValue({
-            projectName: currentProject?.name,
-            projectDescription: currentProject?.description,
-            projectPicture: currentProject?.photoUrl,
+            name: currentProject?.name,
+            description: currentProject?.description,
+            photoUrl: currentProject?.photoUrl,
           })
         }
       )

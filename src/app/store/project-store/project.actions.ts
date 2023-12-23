@@ -11,5 +11,8 @@ export const ProjectActions = createActionGroup({
     loadRandomProjects: emptyProps(),
     loadRandomProjectsSuccess: props<{ randomProjects: Project[] }>(),
     loadRandomProjectsFailure: props<{ error: any }>(),
+    updateProject: props<{ updatedProject: Project }>(),
+    updateProjectSuccess: emptyProps(),
+    updateProjectFailure: props<{ error: any }>(),
   },
 });

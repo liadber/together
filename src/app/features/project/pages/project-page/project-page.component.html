@@ -5,7 +5,7 @@
     <div class="fcol h-strch w-strch text-lines project-info">
       <div class="fcol min-height-0 h-strch w-strch text-lines">
         <div class="frow">
-          <input id="projectName" formControlName="projectName" class="form-input project-name topic w-strch">
+          <input id="name" formControlName="name" class="form-input project-name topic w-strch">
           <div (click)="editMode = true" *ngIf="!editMode" class="button-color">
             <svg aria-label="Edit" width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
@@ -24,7 +24,7 @@
             </svg>
           </button>
         </div>
-        <textarea id="projectDescription" formControlName="projectDescription"
+        <textarea id="description" formControlName="description"
                   class="form-input flx h-strch scroll-overflow-y project-description"></textarea>
       </div>
       <div class="fcol min-height-0 h-strch text-lines flx-jc-flex-end">
