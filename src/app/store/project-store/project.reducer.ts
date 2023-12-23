@@ -22,7 +22,7 @@ export const projectFeature = createFeature({
       const updatedProjectsGrid = state.projectsGrid.map((project) =>
         project.projectId === updatedProject.projectId ? {...project, ...updatedProject} : project
       );
-      return {...state, projectsGrid: updatedProjectsGrid};
+      return {...state, projectsGrid: updatedProjectsGrid, currentProject: updatedProject};
     })
   ),
 });
