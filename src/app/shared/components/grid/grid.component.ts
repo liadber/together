@@ -5,6 +5,7 @@ import {CommonModule} from "@angular/common";
 import {Store} from "@ngrx/store";
 import {ProjectActions} from "../../../store/project-store/project.actions";
 import {RouterLink} from "@angular/router";
+import {ProfileActions} from "../../../store/profile-store/profile.actions";
 
 @Component({
   selector: 'app-grid',
@@ -25,5 +26,6 @@ export class GridComponent implements OnInit {
 
   projectClicked(project: Project) {
     this.store.dispatch(ProjectActions.loadCurrentProject({currentProject: project}));
+    this.store.dispatch(ProfileActions.loadProfile({profileId: project.profileId}));
   }
 }

@@ -14,14 +14,26 @@ export class ProfileService {
   getProfile(profileId: string): Observable<Profile> {
     // const url = `${this.baseUrl}/profiles/${profileId}`; // Adjust your endpoint accordingly
     // return this.http.get<Profile>(url);
-    return of({
-      id: "currentUserId123",
-      name: "Billie Eilish",
-      aboutMe: 'A sing-song-writer, producer, artist and an activist. Hope to get some new co-workers to get my ideas come true.',
-      projectsNumber: 67,
-      believersNumber: 90,
-      imgUrl: ""
-    })
+    if (profileId === "currentUserId123") {
+      return of({
+        id: "currentUserId123",
+        name: "Billie Eilish",
+        aboutMe: 'A sing-song-writer, producer, artist and an activist. Hope to get some new co-workers to get my ideas come true.',
+        projectsNumber: 67,
+        believersNumber: 90,
+        imgUrl: ""
+      })
+    } else {
+      console.log((profileId === "currentUserId123") + " " + profileId)
+      return of({
+        id: "differentUser",
+        name: "Amy Winehouse",
+        aboutMe: 'I just do my shit',
+        projectsNumber: 6337,
+        believersNumber: 9330,
+        imgUrl: ""
+      })
+    }
 
   }
 }
