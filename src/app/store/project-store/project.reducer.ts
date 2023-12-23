@@ -16,5 +16,9 @@ export const projectFeature = createFeature({
       ...state,
       projectsGrid: randomProjects,
     })),
+    on(ProjectActions.loadCurrentProject, (state, {currentProject}) => ({
+      ...state,
+      currentProject: currentProject
+    })),
   ),
 });

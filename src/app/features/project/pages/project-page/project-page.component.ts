@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {ProfileHeaderComponent} from "../../../../shared/components/profile-header/profile-header.component";
+import {Observable} from "rxjs";
+import {Project} from "../../../../../assets/models/project.model";
+import {selectCurrentProject} from "../../../../store/project-store/project.selectors";
+import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-project-page',
@@ -12,6 +16,8 @@ import {ProfileHeaderComponent} from "../../../../shared/components/profile-head
 })
 export class ProjectPageComponent implements OnInit {
   private _editMode: boolean = false;
+  currentProject$: Observable<Project | null>;
+
   projectForm = this.fb.group({
     projectName: ['New Album', Validators.required],
     projectDescription: [
@@ -31,7 +37,7 @@ export class ProjectPageComponent implements OnInit {
       'I’m looking for beginners semi-professionals to start an interesting way together.\n' +
       'I’m a singer in my beginning.\n' +
       'Looking for a cool producer to do some shit together.\n'],
-    projectPicture: [],
+    projectPicture: "",
     inDemand: this.fb.array([
       this.fb.control('Producer'),
       this.fb.control('Record studio owner'),
@@ -76,10 +82,25 @@ export class ProjectPageComponent implements OnInit {
     console.warn(this.projectForm.value);
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private store: Store) {
   }
 
   ngOnInit(): void {
     this.editMode = false;
+    this.currentProject$ = this.store.select(selectCurrentProject);
+    if (this.currentProject$) {
+      this.currentProject$.subscribe((currentProject) => {
+          const inDemandArray = currentProject?.inDemand ?? [];
+          this.inDemand.setValue(inDemandArray);
+
+
+          this.projectForm.patchValue({
+            projectName: currentProject?.name,
+            projectDescription: currentProject?.description,
+            projectPicture: currentProject?.photoUrl,
+          })
+        }
+      )
+    }
   }
 }

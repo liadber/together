@@ -4,6 +4,7 @@ import {Project} from "../../../assets/models/project.model";
 export const ProjectActions = createActionGroup({
   source: 'Project',
   events: {
+    loadCurrentProject: props<{ currentProject: Project }>(),
     loadProjectsByProfileId: props<{ profileId: string }>(),
     loadProjectsByProfileIdSuccess: props<{ projectsByProfileId: Project[] }>(),
     loadProjectsByProfileIdFailure: props<{ error: any }>(),
