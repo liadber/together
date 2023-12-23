@@ -86,10 +86,6 @@ html, body {
   align-items: stretch;
 }
 
-.flx-grow-1 {
-  flex-grow: 1;
-}
-
 .flx-grow-4 {
   flex-grow: 4;
 }
