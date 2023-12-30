@@ -4,16 +4,10 @@ import {DataTypes, Model, Sequelize} from 'sequelize';
 
 class Profile extends Model {
   public id!: string;
-  public name: string;
-  public description: string;
+  public name!: string;
+  public description!: string;
   public createdAt!: Date;
   public updatedAt!: Date;
-
-  constructor() {
-    super();
-    this.name = ''; // or provide a default value
-    this.description = ''; // or provide a default value
-  }
 }
 
 const defineProfileModel = (sequelize: Sequelize) => {

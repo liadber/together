@@ -1,23 +1,25 @@
-import {Profile} from "../types/profile.model";
+import {Profile} from "../models/profile";
 
 
 class ProfileService {
-  // Mock data; replace with actual database interactions
-  private profiles: Profile[] = [
-    {
-      id: '1',
-      name: 'John Doe',
-      description: 'A software engineer.',
-    },
-    // ... other profiles
-  ];
-
-  getAllProfiles(): Profile[] {
-    return this.profiles;
+  async getAllProfiles(): Promise<Profile[]> {
+    try {
+      const profiles = await Profile.findAll();
+      return profiles;
+    } catch (error) {
+      console.error('Error fetching profiles:', error);
+      throw error;
+    }
   }
 
-  getProfileById(profileId: string): Profile | undefined {
-    return this.profiles.find((profile) => profile.id === profileId);
+  async getProfileById(id: string): Promise<Profile | null> {
+    try {
+      const profile = await Profile.findByPk(id);
+      return profile;
+    } catch (error) {
+      console.error(`Error fetching profile with id ${id}:`, error);
+      throw error;
+    }
   }
 }
 

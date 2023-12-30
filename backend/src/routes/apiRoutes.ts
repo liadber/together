@@ -1,21 +1,27 @@
-// apiRoutes.ts
 import express, { Request, Response } from 'express';
 import ProfileService from '../services/profile.service';
-import { Profile } from '../types/profile.model';
+import {Profile} from "../models/profile";
 
 const router = express.Router();
 const profileService = new ProfileService();
 
 // Route to get all profiles
-router.get('/profiles', (req: Request, res: Response) => {
-  const profiles: Profile[] = profileService.getAllProfiles();
-  res.json(profiles);
+router.get('/', async (req: Request, res: Response) => {
+  let profiles: Profile[] = await profileService.getAllProfiles();
+  const formattedProfiles = profiles.map((profile) => ({
+    id: profile.id,
+    name: profile.name,
+    description: profile.description,
+    createdAt: profile.createdAt,
+    updatedAt: profile.updatedAt,
+  }));
+  res.json(formattedProfiles);
 });
 
 // Route to get a profile by ID
-router.get('/:profileId', (req: Request, res: Response) => {
+router.get('/:profileId', async (req: Request, res: Response) => {
   const { profileId } = req.params;
-  const profile: Profile | undefined = profileService.getProfileById(profileId);
+  const profile: Profile | null = await profileService.getProfileById(profileId);
 
   if (profile) {
     res.json(profile);
