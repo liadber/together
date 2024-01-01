@@ -1,7 +1,7 @@
 {
   "name": "Profile Service",
   "version": "1.0.0",
-  "description": "The backend of together application.",
+  "description": "Profile Service as part of together application.",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
