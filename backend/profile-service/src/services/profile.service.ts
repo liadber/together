@@ -1,10 +1,10 @@
-import {Profile} from "../models/profile";
+import {ProfileRecordModel} from "../models/profile-record-model";
 
 
 class ProfileService {
-  async getAllProfiles(): Promise<Profile[]> {
+  async getAllProfiles(): Promise<ProfileRecordModel[]> {
     try {
-      const profiles = await Profile.findAll();
+      const profiles = await ProfileRecordModel.findAll();
       return profiles;
     } catch (error) {
       console.error('Error fetching profiles:', error);
@@ -12,9 +12,9 @@ class ProfileService {
     }
   }
 
-  async getProfileById(id: string): Promise<Profile | null> {
+  async getProfileById(id: string): Promise<ProfileRecordModel | null> {
     try {
-      const profile = await Profile.findByPk(id);
+      const profile = await ProfileRecordModel.findByPk(id);
       return profile;
     } catch (error) {
       console.error(`Error fetching profile with id ${id}:`, error);

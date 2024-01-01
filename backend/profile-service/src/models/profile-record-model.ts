@@ -2,7 +2,7 @@
 
 import {DataTypes, Model, Sequelize} from 'sequelize';
 
-class Profile extends Model {
+class ProfileRecordModel extends Model {
   public id!: string;
   public name!: string;
   public description!: string;
@@ -11,7 +11,7 @@ class Profile extends Model {
 }
 
 const defineProfileModel = (sequelize: Sequelize) => {
-  Profile.init(
+  ProfileRecordModel.init(
     {
       id: {
         type: DataTypes.STRING,
@@ -44,4 +44,4 @@ const defineProfileModel = (sequelize: Sequelize) => {
   );
 };
 
-export {defineProfileModel, Profile};
+export {defineProfileModel, ProfileRecordModel};
