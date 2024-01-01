@@ -10,6 +10,8 @@ import {ProfileEffects} from "./store/profile-store/profile.effects";
 import {profileFeature} from "./store/profile-store/profile.reducer";
 import {projectFeature} from "./store/project-store/project.reducer";
 import {ProjectEffects} from "./store/project-store/project.effects";
+import {ProfileService} from "./core/services/profile.service";
+import {HttpClient, provideHttpClient} from "@angular/common/http";
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),
@@ -20,6 +22,7 @@ export const appConfig: ApplicationConfig = {
     provideEffects(ProfileEffects, ProfileEffects),
     provideState(projectFeature),
     provideEffects(ProjectEffects, ProjectEffects),
+    provideHttpClient(),
     provideStoreDevtools({ //todo: delete after debug
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode
