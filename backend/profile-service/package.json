@@ -1,5 +1,5 @@
 {
-  "name": "Profile Service",
+  "name": "profile-service",
   "version": "1.0.0",
   "description": "Profile Service as part of together application.",
   "main": "index.js",
