@@ -1,21 +1,15 @@
 import {ProjectRecordModel} from "../models/project-record-model";
+import {Sequelize} from "sequelize";
 
 class ProjectService {
   async getRandomProjects(): Promise<ProjectRecordModel[]> {
     try {
-      const totalCount = await ProjectRecordModel.count();
+      const totalProjects = await ProjectRecordModel.count();
+      const projectsToRetrieve = Math.min(12, totalProjects);
 
-      // Set the desired count to be 12 or the total number of projects, whichever is smaller
-      const desiredCount = Math.min(12, totalCount);
-
-      // Generate an array of unique random indices
-      const randomIndices = generateUniqueRandomIndices(desiredCount, totalCount);
-
-      // Fetch projects based on the generated random indices
       const randomProjects = await ProjectRecordModel.findAll({
-        where: {
-          projectId: randomIndices,
-        },
+        order: [Sequelize.literal('RANDOM()')], // Order randomly
+        limit: 12, // Limit to 12 projects
       });
 
       return randomProjects;
@@ -24,7 +18,6 @@ class ProjectService {
       throw error;
     }
   }
-
   async getProjectsByProfileId(profileId: string): Promise<ProjectRecordModel[]> {
     try {
       const projects = await ProjectRecordModel.findAll({
@@ -39,20 +32,5 @@ class ProjectService {
     }
   }
 }
-
-
-// Helper function to generate an array of unique random indices
-const generateUniqueRandomIndices = (count: number, totalCount: number): number[] => {
-  const randomIndices: number[] = [];
-
-  while (randomIndices.length < count) {
-    const randomIndex = Math.floor(Math.random() * totalCount) + 1; // Assuming project IDs start from 1
-    if (!randomIndices.includes(randomIndex)) {
-      randomIndices.push(randomIndex);
-    }
-  }
-
-  return randomIndices;
-};
 
 export default ProjectService;

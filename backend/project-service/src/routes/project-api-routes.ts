@@ -24,6 +24,17 @@ router.get('/projects/:profileId', async (req: Request, res: Response) => {
   }
 });
 
+router.get('/random', async (req: Request, res: Response) => {
+  const projectRecords: ProjectRecordModel[] | null = await projectService.getRandomProjects();
+
+  if (projectRecords) {
+    const projects: Project[] = projectRecords.map(convertToProject);
+    res.json(projects);
+  } else {
+    res.status(404).json({error: 'Projects not found'});
+  }
+});
+
 function convertToProject(record: ProjectRecordModel): Project {
   return {
     projectId: record.projectId,
