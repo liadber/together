@@ -14,7 +14,7 @@ export class ProfileService {
   }
 
   getProfile(profileId: string): Observable<Profile> {
-    const url = `${this.baseUrl}/itamar123`; //todo: change to profileId
+    const url = `${this.baseUrl}/${profileId}`; //todo: change to profileId
     return this.http.get<Profile>(url).pipe(
       catchError(error => {
         console.error('Error loading profile', error);

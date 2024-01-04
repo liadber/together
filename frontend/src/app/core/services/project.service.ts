@@ -19,18 +19,20 @@ export class ProjectService {
   }
 
   getProjectsByProfileId(profileId: string): Observable<Project[]> {
-    const url = `${this.apiUrl}/projects/itamar123`; //todo: change to profileId
+    const url = `${this.apiUrl}/projects/${profileId}`;
     return this.http.get<Project[]>(url);
   }
 
   getRandomProjects(): Observable<Project[]> {
-    return of([demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
-      demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
-      demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
-      demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
-      demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
-      demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
-      demoProjectAmy, demoProjectAmy]);
+    const url = `${this.apiUrl}/random`; //todo: change to profileId
+    return this.http.get<Project[]>(url);
+    // return of([demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
+    //   demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
+    //   demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
+    //   demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
+    //   demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
+    //   demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
+    //   demoProjectAmy, demoProjectAmy]);
   }
 
   updateProject(updatedProject: Project) {
