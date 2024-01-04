@@ -35,6 +35,27 @@ router.get('/random', async (req: Request, res: Response) => {
   }
 });
 
+// Route to update a project by ID
+router.put('/update', async (req: Request, res: Response) => {
+  const updatedProject: Project = req.body; // Assuming the updated project details are sent in the request body
+
+  console.log(updatedProject);
+  try {
+    const isUpdated = await projectService.updateProject({
+      ...updatedProject,
+    });
+
+    if (isUpdated) {
+      res.json({ success: true });
+    } else {
+      res.status(404).json({ error: 'Project not found' });
+    }
+  } catch (error) {
+    console.error(`Error updating project`, error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 function convertToProject(record: ProjectRecordModel): Project {
   return {
     projectId: record.projectId,

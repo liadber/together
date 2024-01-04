@@ -9,6 +9,7 @@ const index = express();
 const port = 3002;
 
 index.use(cors());
+index.use(express.json());
 
 export const sequelize = new Sequelize('postgres', 'postgres', '12345678', {
   host: 'localhost',

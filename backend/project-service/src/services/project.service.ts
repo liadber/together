@@ -1,5 +1,6 @@
 import {ProjectRecordModel} from "../models/project-record-model";
 import {Sequelize} from "sequelize";
+import {Project} from "../types/project.model";
 
 class ProjectService {
   async getRandomProjects(): Promise<ProjectRecordModel[]> {
@@ -28,6 +29,24 @@ class ProjectService {
       return projects;
     } catch (error) {
       console.error(`Error fetching projects by profileId ${profileId}:`, error);
+      throw error;
+    }
+  }
+
+  async updateProject(updatedProject: Project): Promise<Project | null> {
+    try {
+      const { projectId, ...projectDetails } = updatedProject;
+      const existingProject = await ProjectRecordModel.findByPk(projectId);
+
+      if (existingProject) {
+        await existingProject.update({
+          ...projectDetails,
+        });
+        return existingProject;
+      }
+      return null; // Project not found
+    } catch (error) {
+      console.error(`Error updating project ${updatedProject.projectId}:`, error);
       throw error;
     }
   }
