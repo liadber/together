@@ -8,13 +8,13 @@ import { Profile } from "../../../assets/models/profile.model";
   providedIn: 'root'
 })
 export class ProfileService {
-  private baseUrl = 'http://localhost:3000/profile'; // Replace with your actual API base URL
+  private baseUrl = 'http://localhost:3001/profile'; // Replace with your actual API base URL
 
   constructor(private http: HttpClient) {
   }
 
   getProfile(profileId: string): Observable<Profile> {
-    const url = `${this.baseUrl}/1`; //todo: change to profileId
+    const url = `${this.baseUrl}/itamar123`; //todo: change to profileId
     return this.http.get<Profile>(url).pipe(
       catchError(error => {
         console.error('Error loading profile', error);

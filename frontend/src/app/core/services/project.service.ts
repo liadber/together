@@ -1,14 +1,15 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from "rxjs";
 import {Project} from "../../../assets/models/project.model";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
-  private baseUrl = 'your-api-base-url'; // Replace with your actual API base URL
-  // constructor(private http: HttpClient) {
-  // }
+  private apiUrl = 'http://localhost:3002/project/'; // Replace with your actual API endpoint
+
+  constructor(private http: HttpClient) {}
 
 
   getProjectDetails(projectId: string): Observable<Project> {
@@ -18,19 +19,8 @@ export class ProjectService {
   }
 
   getProjectsByProfileId(profileId: string): Observable<Project[]> {
-    if (profileId === "currentUserId123") {
-      return of([demoProject1,
-        // demoProject, demoProject, demoProject, demoProject,
-        demoProject, demoProject]);
-    }else{
-      return of([demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
-        demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
-        demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
-        demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
-        demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
-        demoProjectAmy, demoProjectAmy, demoProjectAmy, demoProjectAmy,
-        demoProjectAmy, demoProjectAmy]);
-    }
+    const url = `${this.apiUrl}/projects/itamar123`; //todo: change to profileId
+    return this.http.get<Project[]>(url);
   }
 
   getRandomProjects(): Observable<Project[]> {

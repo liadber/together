@@ -11,6 +11,6 @@ export class AuthService {
   constructor() {}
 
   getCurrentProfileId(): Observable<string> {
-    return of("currentUserId123");
+    return of("itamar123");
   }
 }
