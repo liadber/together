@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {ProfileHeaderComponent} from "../../../../shared/components/profile-header/profile-header.component";
-import {Observable} from "rxjs";
+import {Observable, take} from "rxjs";
 import {Project} from "../../../../../assets/models/project.model";
 import {selectCurrentProject} from "../../../../store/project-store/project.selectors";
 import {select, Store} from "@ngrx/store";
@@ -93,20 +93,23 @@ export class ProjectPageComponent implements OnInit {
   onSubmit() {
     this.editMode = false;
     const projectFormValue = this.projectForm.value;
-    this.currentProject$.subscribe((currentProject) => {
-      if (currentProject) {
-        const updatedProject: Project = {
-          ...currentProject as Project,
-          name: projectFormValue.name || '',
-          description: projectFormValue.description || '',
-          photoUrl: projectFormValue.photoUrl || '',
-          inDemand: projectFormValue.inDemand?.map((x: string | null) => x ?? '') || [],
-        };
-        this.store.dispatch(ProjectActions.updateProject({updatedProject}));
-      }
-    });
+    this.currentProject$
+      .pipe(take(1))
+      .subscribe((currentProject) => {
+        if (currentProject) {
+          const updatedProject: Project = {
+            projectId: currentProject.projectId,
+            profileId: currentProject.profileId,
+            daysLeft: currentProject.daysLeft,
+            name: projectFormValue.name || '',
+            description: projectFormValue.description || '',
+            photoUrl: projectFormValue.photoUrl || '',
+            inDemand: projectFormValue.inDemand?.map((x: string | null) => x ?? '') || []
+          };
+          this.store.dispatch(ProjectActions.updateProject({updatedProject}));
+        }
+      });
   }
-
 
   //
   // ngOnInit(): void {

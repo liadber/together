@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {of} from 'rxjs';
+import {of, take} from 'rxjs';
 import {catchError, map, switchMap} from 'rxjs/operators';
 import {ProjectActions} from './project.actions';
 import {ProjectService} from "../../core/services/project.service";
@@ -37,12 +37,16 @@ export class ProjectEffects {
   updateProject$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ProjectActions.updateProject),
-      switchMap(action =>
-        this.projectService.updateProject(action.updatedProject).pipe(
+      switchMap(action => {
+        return this.projectService.updateProject(action.updatedProject).pipe(
+          take(1),
           map(() => ProjectActions.updateProjectSuccess()),
-          catchError(error => of(ProjectActions.updateProjectFailure({ error })))
-        )
-      )
+          catchError(error => {
+            console.error('Update failed:', error);
+            return of(ProjectActions.updateProjectFailure({error}));
+          })
+        );
+      })
     )
   );
 
