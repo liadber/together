@@ -9,7 +9,8 @@ import {HttpClient} from "@angular/common/http";
 export class ProjectService {
   private apiUrl = 'http://localhost:3002/project/'; // Replace with your actual API endpoint
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
 
   getProjectDetails(projectId: string): Observable<Project> {
@@ -35,9 +36,11 @@ export class ProjectService {
     //   demoProjectAmy, demoProjectAmy]);
   }
 
-  updateProject(updatedProject: Project) {
-    return of(true);
+  updateProject(updatedProject: Project): Observable<void> {
+    const url = `${this.apiUrl}/update`;
+    return this.http.put<void>(url, updatedProject);
   }
+
 }
 
 const demoProject: Project = {

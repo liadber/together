@@ -39,14 +39,13 @@ router.get('/random', async (req: Request, res: Response) => {
 router.put('/update', async (req: Request, res: Response) => {
   const updatedProject: Project = req.body; // Assuming the updated project details are sent in the request body
 
-  console.log(updatedProject);
   try {
     const isUpdated = await projectService.updateProject({
       ...updatedProject,
     });
 
     if (isUpdated) {
-      res.json({ success: true });
+      res.status(200).end();
     } else {
       res.status(404).json({ error: 'Project not found' });
     }
