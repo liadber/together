@@ -74,10 +74,6 @@ html, body {
   justify-content: stretch;
 }
 
-.flx-jc-flex-end {
-  justify-content: flex-end;
-}
-
 .flx-ac-stretch {
   justify-content: stretch;
 }
