@@ -111,43 +111,19 @@ export class ProjectPageComponent implements OnInit {
       });
   }
 
-  //
-  // ngOnInit(): void {
-  //   this.editMode = false;
-  //   this.currentProject$ = this.store.select(selectCurrentProject);
-  //   this.currentProfileId$ = this.store.select(selectCurrentProfileId);
-  //   if (this.currentProject$) {
-  //     this.currentProject$.subscribe((currentProject) => {
-  //         const inDemandArray = currentProject?.inDemand ?? [];
-  //         this.inDemand.setValue(inDemandArray);
-  //
-  //         this.projectForm.patchValue({
-  //           name: currentProject?.name,
-  //           description: currentProject?.description,
-  //           photoUrl: currentProject?.photoUrl,
-  //         })
-  //       }
-  //     )
-  //   }
-  // }
-
   ngOnInit(): void {
-    this.editMode = false;
     this.currentProfileId$ = this.store.select(selectCurrentProfileId);
     this.currentProject$ = this.store.pipe(select(selectCurrentProject));
 
     this.currentProject$.subscribe((currentProject) => {
       if (currentProject) {
-        this.projectForm.patchValue({
-          name: currentProject.name,
-          description: currentProject.description,
-          photoUrl: currentProject.photoUrl
+        this.projectForm = this.fb.group({
+          name: [currentProject.name, Validators.required],
+          description: [currentProject.description],
+          photoUrl: currentProject.photoUrl,
+          inDemand: this.fb.array(currentProject.inDemand)
         });
-
-        this.inDemand.clear();
-        currentProject.inDemand.forEach((role: string) => {
-          this.inDemand.push(this.fb.control(role, Validators.required));
-        });
+        this.editMode = false;
       }
     });
   }
